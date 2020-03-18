@@ -4,9 +4,9 @@ metadata:
 projects:
   - name: workshop
     source:
-      location: 'https://github.com/mcouliba/debugging-workshop.git'
+      location: 'https://github.com/bartoszmajsak/debugging-workshop.git'
       type: git
-      branch: "3.1"
+      branch: "wip_che_ike"
 components:
   - id: redhat/workshop-tools/3.1
     type: chePlugin
