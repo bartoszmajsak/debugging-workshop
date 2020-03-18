@@ -56,17 +56,6 @@ items:
                 fieldPath: metadata.namespace
           image: quay.io/mcouliba/catalog-spring-boot:3.1_debugging
           imagePullPolicy: IfNotPresent
-          livenessProbe:
-            exec:
-              command:
-              - curl
-              - -f
-              - http://127.0.0.1:8080/actuator/health
-            failureThreshold: 3
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
           name: catalog
           ports:
           - containerPort: 8080
@@ -79,16 +68,21 @@ items:
             name: jolokia
             protocol: TCP
           readinessProbe:
-            exec:
-              command:
-              - curl
-              - -f
-              - http://127.0.0.1:8080/actuator/health
-            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
             initialDelaySeconds: 30
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
+            timeoutSeconds: 2
+            periodSeconds: 3
+            failureThreshold: 8
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            timeoutSeconds: 2
+            periodSeconds: 8
+            failureThreshold: 8
           resources:
             limits:
               cpu: 500m
