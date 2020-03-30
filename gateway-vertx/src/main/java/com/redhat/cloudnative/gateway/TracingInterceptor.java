@@ -26,7 +26,8 @@ public class TracingInterceptor {
         "x-b3-parentspanid",
         "x-b3-sampled",
         "x-b3-flags",
-        "x-ot-span-context"
+        "x-ot-span-context",
+        "ike-session-id"
     );
 
     private static final String X_TRACING_HEADERS = "X-Tracing-Headers";
