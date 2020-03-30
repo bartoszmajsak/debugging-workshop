@@ -38,7 +38,7 @@ items:
               name: catalog-8080
           - secretRef:
               name: inventory-8080
-          image: quay.io/bartoszmajsak/gateway-vertx:3.1_debugging
+          image: quay.io/bmajsak/gateway-vertx:3.1_debugging
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
