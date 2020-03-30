@@ -38,8 +38,8 @@ items:
               name: catalog-8080
           - secretRef:
               name: inventory-8080
-          image: quay.io/mcouliba/gateway-vertx:3.1_debugging
-          imagePullPolicy: IfNotPresent
+          image: quay.io/bartoszmajsak/gateway-vertx:3.1_debugging
+          imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
             httpGet:
